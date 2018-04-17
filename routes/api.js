@@ -27,5 +27,9 @@ router.get('/student_under_advisor', require('../controllers/get_student_under_a
 
 router.get('/teacher', require('../controllers/get_teacher_details'));
 
+router.get('/student/fee', require('../controllers/get_student_fee'));
+
+router.get('/unpaid', require('../controllers/get_unpaid_students'));
+
 
 module.exports = router

@@ -24,6 +24,12 @@ module.exports = {
 
     FIND_STUDENT_UNDER_ADVISOR: loadSql('14_find_student_under_advisor.sql'),
 
-    FIND_TEACHER_DETAILS: loadSql('16_find_teacher_details.sql')
+    FIND_TEACHER_DETAILS: loadSql('16_find_teacher_details.sql'),
+
+    FIND_STUDENT_FEE: loadSql('19_find_fee.sql'),
+
+    FIND_STUDENT_PAYMENT_STATUS: loadSql('20_payment_status.sql'),
+
+    FIND_UNPAID_STUDENT: loadSql('21_unpaid_students.sql')
 
 }
