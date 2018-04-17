@@ -18,20 +18,30 @@ module.exports = (req, res) => {
                 console.log(err);
                 res.sendStatus(500);
             } else {
-                if (typeof results !== 'undefined' && results.length > 0 && year && semester) {
-                    // Then Fetch the sections
-                    results = results[0];
-                    db.query(student.FIND_SUBJECT_SECTION, [subjectid, year, semester], (err, sections, fields) => {
-                        if (err) {
-                            console.log(err);
-                            res.sendStatus(500);
-                        } else {
-                            results.sections = sections;
-                            res.send(results);
-                        }
-                    });
+                if (typeof results !== 'undefined' && results.length > 0) {
+                    if (year && semester) {
+                        // Then Fetch the sections
+                        results = results[0];
+                        db.query(student.FIND_SUBJECT_SECTION, [subjectid, year, semester], (err, sections, fields) => {
+                            if (err) {
+                                console.log(err);
+                                res.sendStatus(500);
+                            } else {
+                                results.sections = sections;
+                                res.send(results);
+                            }
+                        });
+                    } else {
+                        res.send({
+                            ...results,
+                            message: "Year and/or semester was not specified. Not showing section details"
+                        })
+                    }
                 } else {
-                    res.send(results);
+                    res.send({
+                        ...results,
+                        message: "No subject with specified ID was found."
+                    });
                 }
                 
             }
