@@ -10,21 +10,14 @@ router.get('/test', (req, res) => {
 })
 
 router.get('/student', require('../controllers/get_student_details'));
-
 router.get('/student/registered_subjects', require('../controllers/get_registered_subjects'));
-
 router.get('/student/study_schedule', require('../controllers/get_study_schedule'));
-
 router.get('/student/final_schedule', require('../controllers/get_final_schedule'));
-
 router.get('/student/midterm_schedule', require('../controllers/get_midterm_schedule'));
-
 router.get('/student/fee', require('../controllers/get_student_fee'));
-
 router.get('/student/payments', require('../controllers/get_payment_status'));
 
 router.get('/subjects', require('../controllers/get_subjects'));
-
 router.get('/subject', require('../controllers/get_subject'));
 
 router.get('/section/students', require('../controllers/get_student_in_section'));
