@@ -38,7 +38,7 @@ module.exports = (req, res) => {
                         })
                     }
                 } else {
-                    res.send({
+                    res.status(404).send({
                         ...results,
                         message: "No subject with specified ID was found."
                     });

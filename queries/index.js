@@ -38,4 +38,9 @@ module.exports = {
     FIND_REVIEW_COMPANY: loadSql('26_find_review.sql'),
 
     FIND_STUDENT_DETAIL: loadSql('50_student_details.sql'),
+
+    FIND_FACULTY_ALL: loadSql('51_faculty_list.sql'),
+    FIND_FACULTY_DETAIL: loadSql('51_faculty_details.sql'),
+
+    FIND_DEPARTMENT_IN_FACULTY: loadSql('52_department_in_faculty.sql'),
 }

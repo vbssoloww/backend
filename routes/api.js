@@ -19,6 +19,10 @@ router.get('/student/final_schedule', require('../controllers/get_final_schedule
 
 router.get('/student/midterm_schedule', require('../controllers/get_midterm_schedule'));
 
+router.get('/student/fee', require('../controllers/get_student_fee'));
+
+router.get('/student/payments', require('../controllers/get_payment_status'));
+
 router.get('/subjects', require('../controllers/get_subjects'));
 
 router.get('/subject', require('../controllers/get_subject'));
@@ -29,15 +33,15 @@ router.get('/teacher/students', require('../controllers/get_student_under_adviso
 
 router.get('/teacher', require('../controllers/get_teacher_details'));
 
-router.get('/student/fee', require('../controllers/get_student_fee'));
-
-router.get('/student/payments', require('../controllers/get_payment_status'));
-
 router.get('/unpaid', require('../controllers/get_unpaid_students'));
 
 router.get('/offers', require('../controllers/get_offers'));
 
-router.get('/reviews', require('../controllers/company_review'));
+router.get('/reviews', require('../controllers/get_company_review'));
+
+router.get('/faculties', require('../controllers/get_faculties'));
+
+router.get('/faculty', require('../controllers/get_faculty'));
 
 
 module.exports = router
