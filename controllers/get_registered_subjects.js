@@ -1,5 +1,5 @@
 const db = require('../database')
-const student = require('../queries/student');
+const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
     let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId;;
@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         })
     } else {
         if (!year && !semester) {
-            db.query(student.FIND_REGISTERED_SUBJECTS, studentid, (err, results, fields) => {
+            db.query(SQL.FIND_REGISTERED_SUBJECTS, studentid, (err, results, fields) => {
                 if (err) {
                     console.log(err);
                     res.sendStatus(500);
@@ -25,7 +25,7 @@ module.exports = (req, res) => {
                 }
             })
         } else if (year && !semester) {
-            db.query(student.FIND_REGISTERED_SUBJECTS_YEAR, [studentid, year], (err, results, fields) => {
+            db.query(SQL.FIND_REGISTERED_SUBJECTS_YEAR, [studentid, year], (err, results, fields) => {
                 if (err) {
                     console.log(err);
                     res.sendStatus(500);
@@ -34,7 +34,7 @@ module.exports = (req, res) => {
                 }
             })
         } else {
-            db.query(student.FIND_REGISTERED_SUBJECTS_SEMESTER, [studentid, year, semester], (err, results, fields) => {
+            db.query(SQL.FIND_REGISTERED_SUBJECTS_SEMESTER, [studentid, year, semester], (err, results, fields) => {
                 if (err) {
                     console.log(err);
                     res.sendStatus(500);

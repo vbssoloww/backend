@@ -1,9 +1,9 @@
 const db = require('../database')
-const student = require('../queries/student');
+const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
 
-    db.query(student.FIND_SUBJECTS_ALL, (err, results, fields) => {
+    db.query(SQL.FIND_SUBJECTS_ALL, (err, results, fields) => {
         if (err) {
             console.log(err);
             res.sendStatus(500);

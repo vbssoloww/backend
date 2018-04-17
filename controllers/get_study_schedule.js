@@ -1,5 +1,5 @@
 const db = require('../database')
-const student = require('../queries/student');
+const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
     let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId;
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
             "message": "Please specify a semester"
         })
     } else {
-        db.query(student.FIND_STUDY_SCHEDULE, [studentid, year, semester], (err, results, fields) => {
+        db.query(SQL.FIND_STUDY_SCHEDULE, [studentid, year, semester], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);

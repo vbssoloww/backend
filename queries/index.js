@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 function loadSql(filename) {
-    return fs.readFileSync(path.join(__dirname, 'student', filename)).toString()
+    return fs.readFileSync(path.join(__dirname, filename)).toString()
 }
 
 module.exports = {
@@ -18,5 +18,12 @@ module.exports = {
     FIND_SUBJECTS_ALL: loadSql('08_find_subject_all.sql'),
 
     FIND_SUBJECT_DETAILS: loadSql('10_find_subject_details.sql'),
-    FIND_SUBJECT_SECTION: loadSql('10_find_subject_section.sql')
+    FIND_SUBJECT_SECTION: loadSql('10_find_subject_section.sql'),
+
+    FIND_STUDENT_IN_SECTION: loadSql('13_find_student_in_section.sql'),
+
+    FIND_STUDENT_UNDER_ADVISOR: loadSql('14_find_student_under_advisor.sql'),
+
+    FIND_TEACHER_DETAILS: loadSql('16_find_teacher_details.sql')
+
 }

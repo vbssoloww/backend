@@ -1,5 +1,5 @@
 const db = require('../database')
-const student = require('../queries/student');
+const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
 
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         })
     } else {
         // Fetch the subject detail first
-        db.query(student.FIND_SUBJECT_DETAILS, [subjectid], (err, results, fields) => {
+        db.query(SQL.FIND_SUBJECT_DETAILS, [subjectid], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
@@ -22,7 +22,7 @@ module.exports = (req, res) => {
                     if (year && semester) {
                         // Then Fetch the sections
                         results = results[0];
-                        db.query(student.FIND_SUBJECT_SECTION, [subjectid, year, semester], (err, sections, fields) => {
+                        db.query(SQL.FIND_SUBJECT_SECTION, [subjectid, year, semester], (err, sections, fields) => {
                             if (err) {
                                 console.log(err);
                                 res.sendStatus(500);
