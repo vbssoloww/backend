@@ -9,27 +9,35 @@ router.get('/test', (req, res) => {
     })
 })
 
-router.get('/registered_subjects', require('../controllers/get_registered_subjects'));
+router.get('/student', require('../controllers/get_student_details'));
 
-router.get('/study_schedule', require('../controllers/get_study_schedule'));
+router.get('/student/registered_subjects', require('../controllers/get_registered_subjects'));
 
-router.get('/final_schedule', require('../controllers/get_final_schedule'));
+router.get('/student/study_schedule', require('../controllers/get_study_schedule'));
 
-router.get('/midterm_schedule', require('../controllers/get_midterm_schedule'));
+router.get('/student/final_schedule', require('../controllers/get_final_schedule'));
+
+router.get('/student/midterm_schedule', require('../controllers/get_midterm_schedule'));
 
 router.get('/subjects', require('../controllers/get_subjects'));
 
 router.get('/subject', require('../controllers/get_subject'));
 
-router.get('/student_in_section', require('../controllers/get_student_in_section'));
+router.get('/section/students', require('../controllers/get_student_in_section'));
 
-router.get('/student_under_advisor', require('../controllers/get_student_under_advisor'));
+router.get('/teacher/students', require('../controllers/get_student_under_advisor'));
 
 router.get('/teacher', require('../controllers/get_teacher_details'));
 
 router.get('/student/fee', require('../controllers/get_student_fee'));
 
+router.get('/student/payments', require('../controllers/get_payment_status'));
+
 router.get('/unpaid', require('../controllers/get_unpaid_students'));
+
+router.get('/offers', require('../controllers/get_offers'));
+
+router.get('/reviews', require('../controllers/company_review'));
 
 
 module.exports = router

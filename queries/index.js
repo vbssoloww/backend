@@ -30,6 +30,12 @@ module.exports = {
 
     FIND_STUDENT_PAYMENT_STATUS: loadSql('20_payment_status.sql'),
 
-    FIND_UNPAID_STUDENT: loadSql('21_unpaid_students.sql')
+    FIND_UNPAID_STUDENT: loadSql('21_unpaid_students.sql'),
 
+    FIND_ALL_OFFERS: loadSql('25_find_all_offers.sql'),
+    FIND_ALL_OFFERS_COMPANY: loadSql('25_find_all_offers_by_company.sql'),
+
+    FIND_REVIEW_COMPANY: loadSql('26_find_review.sql'),
+
+    FIND_STUDENT_DETAIL: loadSql('50_student_details.sql'),
 }

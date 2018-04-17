@@ -2,14 +2,14 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    let teacherid = req.body.teacherid || req.body.TeacherID || req.body.TeacherId || req.query.teacherid || req.query.TeacherID || req.query.TeacherId;
+    let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
 
-    if (!teacherid) {
+    if (!studentid) {
         res.status(422).send({
-            "message": "Please specify a teacher ID"
+            "message": "Please specify a student ID"
         })
     } else {
-        db.query(SQL.FIND_TEACHER_DETAILS, [teacherid], (err, results, fields) => {
+        db.query(SQL.FIND_STUDENT_DETAIL, [studentid], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);

@@ -10,21 +10,15 @@ const api = require('./routes/api');
 // Application
 const app = express();
 
-// Config
-const PORT = 3145;
-
-
 app.use(helmet());
 app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.send("Hello!");
+    res.status(200).send("Hello!");
 })
 
 app.use('/api', api);
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-})
+module.exports = app;
