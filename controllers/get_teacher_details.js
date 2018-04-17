@@ -2,7 +2,7 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    let teacherid = req.body.teacherid || req.body.TeacherID || req.body.TeacherId;
+    let teacherid = req.body.teacherid || req.body.TeacherID || req.body.TeacherId || req.query.teacherid || req.query.TeacherID || req.query.TeacherId;
 
     if (!teacherid``) {
         res.status(423).send({

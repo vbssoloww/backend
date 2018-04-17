@@ -3,9 +3,9 @@ const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
 
-    let subjectid = req.body.subjectid || req.body.SubjectId;
-    let year = req.body.year || req.body.Year;
-    let semester = req.body.semester || req.body.Semester;
+    let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
+    let year = req.body.year || req.body.Year || req.query.year || req.query.Year;
+    let semester = req.body.semester || req.body.Semester || req.query.semester || req.query.Semester;
 
     if (!subjectid) {
         res.status(423).send({

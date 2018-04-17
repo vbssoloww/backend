@@ -2,10 +2,10 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    let subjectid = req.body.subjectid || req.body.SubjectID || req.body.SubjectId;
-    let year = req.body.year || req.body.Year;
-    let semester = req.body.semester || req.body.Semester;
-    let sectionid = req.body.sectionid || req.body.SectionID || req.body.SectionId;
+    let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
+    let year = req.body.year || req.body.Year || req.query.year || req.query.Year;
+    let semester = req.body.semester || req.body.Semester || req.query.semester || req.query.Semester;
+    let sectionid = req.body.sectionid || req.body.SectionID || req.body.SectionId || req.query.sectionid || req.query.SectionId || req.query.SectionId;
 
     if (!subjectid) {
         res.status(423).send({
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
             "message": "Please specify a semester"
         })
     } else {
-        db.query(SQL.FIND_FINAL_SCHEDULE, [subjectid, sectionid, year, semester], (err, results, fields) => {
+        db.query(SQL.FIND_STUDENT_IN_SECTION, [subjectid, sectionid, year, semester], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
