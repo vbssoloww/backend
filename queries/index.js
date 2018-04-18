@@ -19,11 +19,13 @@ module.exports = {
 
     FIND_SUBJECT_DETAILS: loadSql('10_find_subject_details.sql'),
     FIND_SUBJECT_SECTION: loadSql('10_find_subject_section.sql'),
+    FIND_SUBJECT_SECTION_DETAIL: loadSql('10_find_subject_section_detail.sql'),
 
     FIND_STUDENT_IN_SECTION: loadSql('13_find_student_in_section.sql'),
 
     FIND_STUDENT_UNDER_ADVISOR: loadSql('14_find_student_under_advisor.sql'),
 
+    FIND_TEACHER_LIST: loadSql('16_find_teacher_list.sql'),
     FIND_TEACHER_DETAILS: loadSql('16_find_teacher_details.sql'),
 
     FIND_STUDENT_FEE: loadSql('19_find_fee.sql'),
@@ -38,9 +40,12 @@ module.exports = {
     FIND_REVIEW_COMPANY: loadSql('26_find_review.sql'),
 
     FIND_STUDENT_DETAIL: loadSql('50_student_details.sql'),
+    FIND_STUDENTS_ALL: loadSql('50_student_list.sql'),
 
     FIND_FACULTY_ALL: loadSql('51_faculty_list.sql'),
     FIND_FACULTY_DETAIL: loadSql('51_faculty_details.sql'),
 
     FIND_DEPARTMENT_IN_FACULTY: loadSql('52_department_in_faculty.sql'),
+
+    FIND_DEPARTMENT_DETAILS: loadSql('53_find_department_details.sql'),
 }

@@ -3,15 +3,26 @@ const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
 
-    let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
+    let studentid = req.params.stuid;
 
-    db.query(SQL.FIND_STUDENT_FEE, [studentid], (err, results, fields) => {
+    // Compatability with APIv1
+    if (!studentid) studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
+
+    if (!studentid) {
+        res.status(422).send({
+            "message": "Please specify a student ID"
+        })
+    } db.query(SQL.FIND_STUDENT_FEE, [studentid], (err, results, fields) => {
         if (err) {
             console.log(err);
             res.sendStatus(500);
         } else {
-            res.send(results);
+            if (results.length > 0) {
+                res.send(results[0]);
+            } else {
+                res.status(404).send(results);
+            }
         }
-    })
+    });
 
 }

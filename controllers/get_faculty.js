@@ -3,10 +3,13 @@ const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
 
-    let facultyid = req.body.facultyid || req.body.FacultyID || req.body.FacultyId || req.query.facultyid || req.query.FacultyID || req.query.FacultyId;
+    let facultyid = req.params.fid;
+
+    // Maintain Compatability with APIv1
+    if (!facultyid) facultyid = req.body.facultyid || req.body.FacultyID || req.body.FacultyId || req.query.facultyid || req.query.FacultyID || req.query.FacultyId;
 
     if (!facultyid) {
-        res.status(423).send({
+        res.status(422).send({
             "message": "Please specify a Faculty ID"
         })
     } else {
@@ -18,12 +21,12 @@ module.exports = (req, res) => {
             } else {
                 if (typeof results !== 'undefined' && results.length > 0) {
                     results = results[0];
-                    db.query(SQL.FIND_DEPARTMENT_IN_FACULTY, [facultyid], (err, sections, fields) => {
+                    db.query(SQL.FIND_DEPARTMENT_IN_FACULTY, [facultyid], (err, departments, fields) => {
                         if (err) {
                             console.log(err);
                             res.sendStatus(500);
                         } else {
-                            results.sections = sections;
+                            results.departments = departments;
                             res.send(results);
                         }
                     });

@@ -2,7 +2,7 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    
+
     let subjectid = req.params.subid;
     let year = req.params.year;
     let semester = req.params.semester;
@@ -15,29 +15,22 @@ module.exports = (req, res) => {
     if (!sectionno) sectionno = req.body.sectionno || req.query.sectionno;
 
     if (!subjectid) {
-        res.status(423).send({
-            "message": "Please specify a subject ID"
-        })
-    } else if (!sectionid) {
-        res.status(423).send({
-            "message": "Please specify a section ID"
-        })
-    } else if (!year) {
-        res.status(423).send({
-            "message": "Please specify a year"
-        })
-    } else if (!semester) {
-        res.status(423).send({
-            "message": "Please specify a semester"
+        res.status(422).send({
+            "message": "Please specify a Subject ID"
         })
     } else {
-        db.query(SQL.FIND_STUDENT_IN_SECTION, [subjectid, sectionid, year, semester], (err, results, fields) => {
+        db.query(SQL.FIND_SUBJECT_SECTION_DETAIL, [subjectid, year, semester, sectionno], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
             } else {
-                res.send(results);
+                if (results.length > 0) {
+                    res.send(results[0]);
+                } else {
+                    res.status(404).send(results);
+                }
             }
-        })  
+        });
     }
+
 }

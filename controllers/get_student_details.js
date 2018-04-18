@@ -2,7 +2,11 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    let studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
+
+    let studentid = req.params.stuid;
+
+    // Maintain APIv1 Compatability
+    if(!studentid) studentid = req.body.studentid || req.body.StudentID || req.body.StudentId || req.query.studentid || req.query.StudentID || req.query.StudentId;
 
     if (!studentid) {
         res.status(422).send({
@@ -14,7 +18,11 @@ module.exports = (req, res) => {
                 console.log(err);
                 res.sendStatus(500);
             } else {
-                res.send(results);
+                if (results.length > 0) {
+                    res.send(results);
+                } else {
+                    res.status(404).send(results);
+                }
             }
         })  
     }

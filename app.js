@@ -9,6 +9,7 @@ const lowercasePaths = require('express-lowercase-paths');
 
 // Routes
 const apiv1 = require('./routes/api.v1');
+const apiv2 = require('./routes/api.v2');
 
 // Application
 const app = express();
@@ -33,5 +34,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1', apiv1);
+app.use('/api/v2', apiv2);
 
 module.exports = app;
