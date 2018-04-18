@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const cors = require('cors')
 const compression = require('compression');
 const lowercasePaths = require('express-lowercase-paths');
+const multer = require('multer');
 
 // Routes
 const apiv1 = require('./routes/api.v1');
@@ -27,7 +28,12 @@ app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Convert to lowercase
 app.use(lowercasePaths())
+
+// Parse form-data
+const upload = multer();
+app.use(upload.array());
 
 app.get('/', (req, res) => {
     res.send("Hello!");

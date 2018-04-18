@@ -1,0 +1,2 @@
+INSERT INTO internship_offer(`CompanyID`, `Year`, `OfferID`, `PositionNameEN`, `PositionNameTH`, `PositionDescriptionEN`, `PositionDescirptionTH`, `NumberOfPositions`, `OtherRequirements`, `StatedMinimumGrade`, `StatedSalary`, `OtherBenefits`, `ExpiryDate`)
+VALUES (?);

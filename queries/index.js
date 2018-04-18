@@ -48,4 +48,8 @@ module.exports = {
     FIND_DEPARTMENT_IN_FACULTY: loadSql('52_department_in_faculty.sql'),
 
     FIND_DEPARTMENT_DETAILS: loadSql('53_find_department_details.sql'),
+    FIND_DEPARTMENT_HEAD: loadSql('53_find_department_head.sql'),
+
+    CREATE_NEW_PAYMENT: loadSql('54_insert_new_payment.sql'),
+    CREATE_NEW_OFFER: loadSql('55_insert_new_offer.sql'),
 }

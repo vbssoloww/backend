@@ -26,6 +26,26 @@ module.exports = (req, res) => {
                 res.sendStatus(500);
             } else {
                 if (results.length > 1) {
+                    db.query(SQL.FIND_DEPARTMENT_HEAD, [facultyid, departmentid], (err, dephead, fields) => {
+                        if (err) {
+                            console.log(err);
+                            res.sendStatus(500);
+                        } else {
+
+                            results.departmentHead = dephead.length > 0 ? dephead[0] : null;
+
+                            db.query(SQL.FIND_DEPARTMENT_TEACHERS, [facultyid, departmentid], (err, teachers, fields) => {
+                                if (err) {
+                                    console.log(err);
+                                    res.sendStatus(500);
+                                } else {
+                                    
+                                    results.teachers = teachers;
+                                    res.send(results);
+                                }
+                            })
+                        }
+                    })
                     res.send(results[0]);
                 } else {
                     res.sendStatus(404);

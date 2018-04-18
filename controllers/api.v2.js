@@ -46,7 +46,7 @@ router.get('/teachers/:tid/advisees', require('../controllers/get_student_under_
 
 router.get('/students/unpaid', require('../controllers/get_unpaid_students'));
 router.get('/offers', require('../controllers/get_offers'));
-router.put('/offers', require('../controllers/put_new_offer'));
+router.put('/offers', require('../controllers/put_offers'));
 router.get('/reviews', require('../controllers/get_company_review'));
 
 router.get('/faculties', require('../controllers/get_faculties'));
