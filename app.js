@@ -28,12 +28,12 @@ app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Convert to lowercase
-app.use(lowercasePaths())
-
 // Parse form-data
 const upload = multer();
 app.use(upload.array());
+
+// Convert to lowercase
+app.use(lowercasePaths())
 
 app.get('/', (req, res) => {
     res.send("Hello!");

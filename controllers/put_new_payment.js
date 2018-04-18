@@ -7,8 +7,8 @@ module.exports = (req, res) => {
 
     let year = req.body.year;
     let semester = req.body.semester;
-    let paymentid = req.body.paymentid;
-    let paymentdate = req.body.paymentdate;
+    let paymentid = req.body.paymentid || req.body.paymentId;
+    let paymentdate = req.body.paymentdate || req.body.paymentDate;
 
     if (!studentid) {
         res.status(422).send({

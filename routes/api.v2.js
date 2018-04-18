@@ -10,8 +10,9 @@ router.get('/test', (req, res) => {
 })
 
 router.get('/students', require('../controllers/get_students'));
+router.put('/students/undergrad', require('../controllers/put_new_undergrad'));
+router.put('/students/grad', require('../controllers/put_new_grad'));
 router.get('/students/:stuid', require('../controllers/get_student_details'));
-
 router.get('/students/:stuid/registered-subjects', require('../controllers/get_registered_subjects'));
 router.get('/students/:stuid/registered-subjects/:year', require('../controllers/get_registered_subjects'));
 router.get('/students/:stuid/registered-subjects/:year/:semester', require('../controllers/get_registered_subjects'));

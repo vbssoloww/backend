@@ -2,18 +2,18 @@ const db = require('../database')
 const SQL = require('../queries/index');
 
 module.exports = (req, res) => {
-    let companyid = req.body.companyId;
+    let companyid = req.body.companyid || req.body.companyId;
     let year = req.body.year;
-    let positionNameEn = req.body.positionNameEn;
-    let positionNameTh = req.body.positionNameTh || null;
-    let positionDescriptionEn = req.body.positionDescriptionEn || null;
-    let positionDescriptionTh = req.body.positionDescriptionTh || null;
-    let numberOfPositions = req.body.numberOfPositions || null;
-    let otherRequirements = req.body.otherRequirements || null;
-    let statedMinimumGrade = req.body.statedMinimumGrade || null;
-    let statedSalary = req.body.statedSalary || null;
-    let otherBenefits = req.body.otherBenefits || null;
-    let expiryDate = req.body.expiryDate || null;
+    let positionNameEn = req.body.positionnameen || req.body.positionNameEn;
+    let positionNameTh = req.body.positionnameth || req.body.positionNameTh;
+    let positionDescriptionEn = req.body.positiondescriptionen || req.body.positionDescriptionEn;
+    let positionDescriptionTh = req.body.positiondescriptionth || req.body.positionDescriptionTh;
+    let numberOfPositions = req.body.numberofpositions || req.body.numberOfPositions;
+    let otherRequirements = req.body.otherrequirements || req.body.otherRequirements;
+    let statedMinimumGrade = req.body.statedminimumgrade || req.body.statedMinimumGrade;
+    let statedSalary = req.body.statedsalary || req.body.statedSalary;
+    let otherBenefits = req.body.otherbenefits || req.body.otherBenefits;
+    let expiryDate = req.body.expirydate || req.body.expiryDate;
 
     let params = [companyid, year, positionNameEn, positionNameTh, 
                   positionDescriptionEn, positionDescriptionTh, 

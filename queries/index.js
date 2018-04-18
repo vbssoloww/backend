@@ -52,4 +52,7 @@ module.exports = {
 
     CREATE_NEW_PAYMENT: loadSql('54_insert_new_payment.sql'),
     CREATE_NEW_OFFER: loadSql('55_insert_new_offer.sql'),
+
+    CREATE_NEW_STUDENT: loadSql('56_insert_new_student.sql'),
+    CREATE_NEW_UNDERGRAD_STUDENT: loadSql('56_insert_new_undergrad.sql'),
 }

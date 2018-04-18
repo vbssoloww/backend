@@ -18,7 +18,11 @@ module.exports = (req, res) => {
                 console.log(err);
                 res.sendStatus(500);
             } else {
-                res.send(results);
+                if (results.length > 0){
+                    res.send(results);
+                } else {
+                    res.status(404).send(results);
+                }
             }
         })
     }
