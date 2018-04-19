@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     res.send("Hello!");
 })
 
-app.use('/api/v1', apiv1);
-app.use('/api/v2', apiv2);
+app.use('/v1', apiv1);
+app.use('/v2', apiv2);
 
 module.exports = app;
