@@ -1,5 +1,5 @@
 module.exports = {
-    origin: ["http://localhost:8000"],
-    methods: ["GET", "POST"],
+    origin: true,
+    methods: ["GET", "POST", "PUT", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }
