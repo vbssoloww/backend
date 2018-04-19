@@ -10,17 +10,17 @@ module.exports = (req, res) => {
     
     if (!companyid) {
         res.status(422).send({
-            "message": "Please specify a compnay ID"
+            "message": "Please specify a company ID"
         })
     } else {
-        db.query(SQL.FIND_REVIEW_COMPANY, [companyid], (err, results, fields) => {
+        db.query(SQL.FIND_COMPANY_BRANCHES, [companyid], (err, results, fields) => {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
             } else {
                 res.send(results);
             }
-        });
+        })
     }
 
 }

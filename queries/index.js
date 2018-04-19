@@ -55,4 +55,9 @@ module.exports = {
 
     CREATE_NEW_STUDENT: loadSql('56_insert_new_student.sql'),
     CREATE_NEW_UNDERGRAD_STUDENT: loadSql('56_insert_new_undergrad.sql'),
+
+    FIND_COMPANIES: loadSql('60_get_companies.sql'),
+    FIND_COMPANY_DETAIL: loadSql('60_get_company_detail.sql'),
+    FIND_COMPANY_BRANCHES: loadSql('61_get_company_branches.sql'),
+    FIND_BRANCH_DETAILS: loadSql('61_branch_details.sql'),
 }
