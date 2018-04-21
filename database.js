@@ -4,36 +4,36 @@ const dbConfig = require('./config/db');
 // DB Connection
 var pool = mysql.createPool(dbConfig);
 
-exports.connection = {
-    query: function () {
-        var queryArgs = Array.prototype.slice.call(arguments),
-            events = [],
-            eventNameIndex = {};
+exports.query = function () {
+    var queryArgs = Array.prototype.slice.call(arguments),
+        events = [],
+        eventNameIndex = {};
 
-        pool.getConnection(function (err, conn) {
-            if (err) {
-                if (eventNameIndex.error) {
-                    eventNameIndex.error();
-                }
+    pool.getConnection(function (err, conn) {
+        if (err) {
+            console.log("Database Connection Failed")
+            if (eventNameIndex.error) {
+                eventNameIndex.error();
             }
-            if (conn) { 
-                var q = conn.query.apply(conn, queryArgs);
-                q.on('end', function () {
-                    conn.release();
-                });
+        }
+        if (conn) { 
+            console.log("Database Connection Successful")
+            var q = conn.query.apply(conn, queryArgs);
+            q.on('end', function () {
+                conn.release();
+            });
 
-                events.forEach(function (args) {
-                    q.on.apply(q, args);
-                });
-            }
-        });
+            events.forEach(function (args) {
+                q.on.apply(q, args);
+            });
+        }
+    });
 
-        return {
-            on: function (eventName, callback) {
-                events.push(Array.prototype.slice.call(arguments));
-                eventNameIndex[eventName] = callback;
-                return this;
-            }
-        };
-    }
+    return {
+        on: function (eventName, callback) {
+            events.push(Array.prototype.slice.call(arguments));
+            eventNameIndex[eventName] = callback;
+            return this;
+        }
+    };
 };

@@ -1,3 +1,3 @@
-SELECT (`TeacherID`, `FnameEN`, `MnameEN`, `LnameEN`, `FnameTH`, `MnameTH`, `LnameTH`, `TeacherEmail`, `TelNo`, `WorksForFaculty`, `WorksForDepartment`, `Since`)
+SELECT `TeacherID`, `FnameEN`, `MnameEN`, `LnameEN`, `FnameTH`, `MnameTH`, `LnameTH`, `TeacherEmail`, `TelNo`, `WorksForFaculty`, `WorksForDepartment`, `Since`
 FROM teacher t
 WHERE t.TeacherID = ?
