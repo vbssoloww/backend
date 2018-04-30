@@ -81,6 +81,7 @@ router.get('/faculties/:fid/departments/:depid/teachers', require('../controller
 router.get('/companies', require('../controllers/get_companies'));
 router.put('/companies', require('../controllers/put_new_company'));
 router.get('/companies/:compid', require('../controllers/get_company'));
+router.put('/companies/:compid/branches', requrie('../controllers/put_new_branch'));
 router.get('/companies/:compid/branches', require('../controllers/get_company_branches'));
 router.get('/companies/:compid/branches/:brid', require('../controllers/get_branch_details'));
 router.get('/companies/:compid/reviews', require('../controllers/get_company_review'));
