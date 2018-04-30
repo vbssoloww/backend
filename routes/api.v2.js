@@ -15,6 +15,9 @@ router.put('/students/undergrad', require('../controllers/put_new_undergrad'));
 router.put('/students/grad', require('../controllers/put_new_grad'));
 router.get('/students/:stuid', require('../controllers/get_student_details'));
 router.get('/students/:stuid/registered', require('../controllers/get_registered_subjects'));
+router.put('/students/:stuid/registered/register', require('../controllers/register_subject'));
+router.put('/students/:stuid/registered/withdraw', require('../controllers/withdraw_subject'));
+router.put('/students/:stuid/registered/drop', require('../controllers/drop_subject'));
 router.get('/students/:stuid/registered/:year', require('../controllers/get_registered_subjects'));
 router.get('/students/:stuid/registered/:year/:semester', require('../controllers/get_registered_subjects'));
 // Edit Student Details
@@ -45,7 +48,6 @@ router.get('/students/:stuid/internships/:year', require('../controllers/get_stu
 router.get('/subjects', require('../controllers/get_subjects'));
 router.put('/subjects', require('../controllers/put_new_subject'));
 router.get('/subjects/:subid', require('../controllers/get_subject'));
-// router.get('/subjects/:sid/:year', require('../controllers/get_subject'));
 router.get('/subjects/:subid/:year/:semester', require('../controllers/get_subject'));
 router.put('/subjects/:subid/:year/:semester', require('../controllers/put_new_class'));
 router.get('/subjects/:subid/:year/:semester/sections', require('../controllers/get_sections'));
