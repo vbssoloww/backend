@@ -51,8 +51,8 @@ router.get('/subjects/:subid/:year/:semester/sections/:sectno', require('../cont
 router.get('/subjects/:subid/:year/:semester/sections/:sectno/students', require('../controllers/get_student_in_section'));
 
 /* Teacher */
-router.put('/teachers', require('../controllers/put_new_teacher'));
 router.get('/teachers', require('../controllers/get_teachers'));
+router.put('/teachers', require('../controllers/put_new_teacher'));
 router.get('/teachers/:tid', require('../controllers/get_teacher_details'));
 router.get('/teachers/:tid/advisees', require('../controllers/get_student_under_advisor'));
 // Add new teacher
@@ -76,6 +76,7 @@ router.get('/faculties/:fid/departments/:depid/teachers', require('../controller
 
 /* Company & Branch */
 router.get('/companies', require('../controllers/get_companies'));
+router.put('/companies', require('../controllers/put_new_company'));
 router.get('/companies/:compid', require('../controllers/get_company'));
 router.get('/companies/:compid/branches', require('../controllers/get_company_branches'));
 router.get('/companies/:compid/branches/:brid', require('../controllers/get_branch_details'));
