@@ -43,6 +43,7 @@ router.get('/students/:stuid/internships/:year', require('../controllers/get_stu
 
 /* Subject */
 router.get('/subjects', require('../controllers/get_subjects'));
+router.put('/subjects', require('../controllers/put_new_subject'));
 router.get('/subjects/:subid', require('../controllers/get_subject'));
 // router.get('/subjects/:sid/:year', require('../controllers/get_subject'));
 router.get('/subjects/:subid/:year/:semester', require('../controllers/get_subject'));

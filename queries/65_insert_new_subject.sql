@@ -1,0 +1,2 @@
+INSERT INTO `subject`
+SET ?;
