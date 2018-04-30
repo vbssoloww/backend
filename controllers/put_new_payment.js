@@ -25,7 +25,7 @@ module.exports = (req, res) => {
     } else {
         db.query(SQL.CREATE_NEW_PAYMENT, [[studentid, year, semester, paymentid, 'Pending', '1999-12-01']], (err, results, fields) => {
             if (err) {
-                if (err.code === 'ER DUP ENTRY') {
+                if (err.code === 'ER_DUP_ENTRY') {
                     res.status(400).send({
                         message: "Payment already exists!"
                     });

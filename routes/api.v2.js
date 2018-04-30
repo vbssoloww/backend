@@ -47,7 +47,9 @@ router.put('/subjects', require('../controllers/put_new_subject'));
 router.get('/subjects/:subid', require('../controllers/get_subject'));
 // router.get('/subjects/:sid/:year', require('../controllers/get_subject'));
 router.get('/subjects/:subid/:year/:semester', require('../controllers/get_subject'));
+router.put('/subjects/:subid/:year/:semester', require('../controllers/put_new_class'));
 router.get('/subjects/:subid/:year/:semester/sections', require('../controllers/get_sections'));
+router.put('/subjects/:subid/:year/:semester/sections', require('../controllers/put_new_section'));
 router.get('/subjects/:subid/:year/:semester/sections/:sectno', require('../controllers/get_section_detail'));
 router.get('/subjects/:subid/:year/:semester/sections/:sectno/students', require('../controllers/get_student_in_section'));
 

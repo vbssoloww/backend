@@ -11,7 +11,7 @@ module.exports = (req, res) => {
 
     db.query(SQL.CREATE_NEW_COMPANY, newCompany, (err, results, fields) => {
         if (err) {
-            if (err.code === 'ER DUP ENTRY') {
+            if (err.code === 'ER_DUP_ENTRY') {
                 res.status(400).send({
                     message: "Company already exists!"
                 });

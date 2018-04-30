@@ -41,7 +41,7 @@ module.exports = (req, res) => {
     } else {
         db.query(SQL.CREATE_NEW_TEACHER, newTeacher, (err, results, fields) => {
             if (err) {
-                if (err.code === 'ER DUP ENTRY') {
+                if (err.code === 'ER_DUP_ENTRY') {
                     res.status(400).send({
                         message: "Teacher already exists!"
                     });

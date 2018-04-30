@@ -11,7 +11,7 @@ module.exports = (req, res) => {
         NameTH: req.body.nameth || req.body.nameTh,
         Credit: req.body.credit
     }
-    
+
     if (!newSubject.SubjectID) {
         res.status(422).send({
             "message": "Please specify a subject ID"
@@ -27,7 +27,7 @@ module.exports = (req, res) => {
     } else {
         db.query(SQL.CREATE_NEW_SUBJECT, newSubject, (err, results, fields) => {
             if (err) {
-                if (err.code === 'ER DUP ENTRY') {
+                if (err.code === 'ER_DUP_ENTRY') {
                     res.status(400).send({
                         message: "Subject already exists!"
                     });

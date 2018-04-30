@@ -1,0 +1,2 @@
+INSERT INTO `section`
+SET ?;
