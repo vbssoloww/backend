@@ -50,7 +50,7 @@ module.exports = (req, res) => {
     } else {
         db.query(SQL.CREATE_NEW_STUDENT, [studentParams], (err, results, fields) => {
             if (err) {
-                if (err.code = 'ER DUP ENTRY') {
+                if (err.code === 'ER DUP ENTRY') {
                     console.log(err);
                     res.status(400).send({
                         message: "Student already exists!"

@@ -60,4 +60,9 @@ module.exports = {
     FIND_COMPANY_DETAIL: loadSql('60_get_company_detail.sql'),
     FIND_COMPANY_BRANCHES: loadSql('61_get_company_branches.sql'),
     FIND_BRANCH_DETAILS: loadSql('61_branch_details.sql'),
+
+    FIND_STUDENT_INTERNSHIPS: loadSql('62_find_student_internships.sql'),
+    FIND_STUDENT_INTERNSHIP_YEAR: loadSql('62_find_student_internships_year.sql'),
+
+    CREATE_NEW_TEACHER: loadSql('63_insert_new_teacher.sql'),
 }

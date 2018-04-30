@@ -18,7 +18,6 @@ router.get('/students/:stuid/registered', require('../controllers/get_registered
 router.get('/students/:stuid/registered/:year', require('../controllers/get_registered_subjects'));
 router.get('/students/:stuid/registered/:year/:semester', require('../controllers/get_registered_subjects'));
 // Edit Student Details
-// Internship
 
 /* Student Schedules */
 router.get('/students/:stuid/schedules/study', require('../controllers/get_study_schedule'));
@@ -38,6 +37,10 @@ router.get('/students/:stuid/fee', require('../controllers/get_student_fee'));
 router.get('/students/:stuid/payments', require('../controllers/get_payment_status'));
 router.put('/students/:stuid/payments', require('../controllers/put_new_payment'));
 
+/* Student Internship */
+router.get('/students/:stuid/internships', require('../controllers/get_student_internships'));
+router.get('/students/:stuid/internships/:year', require('../controllers/get_student_internships'));
+
 /* Subject */
 router.get('/subjects', require('../controllers/get_subjects'));
 router.get('/subjects/:subid', require('../controllers/get_subject'));
@@ -48,7 +51,8 @@ router.get('/subjects/:subid/:year/:semester/sections/:sectno', require('../cont
 router.get('/subjects/:subid/:year/:semester/sections/:sectno/students', require('../controllers/get_student_in_section'));
 
 /* Teacher */
-router.get('/teachers', require('../controllers/get_teachers'))
+router.put('/teachers', require('../controllers/put_new_teacher'));
+router.get('/teachers', require('../controllers/get_teachers'));
 router.get('/teachers/:tid', require('../controllers/get_teacher_details'));
 router.get('/teachers/:tid/advisees', require('../controllers/get_student_under_advisor'));
 // Add new teacher
@@ -67,11 +71,15 @@ router.get('/faculties/:fid/departments/:depid', require('../controllers/get_dep
 router.get('/faculties/:fid/departments/:depid/head', require('../controllers/get_department_head'));
 router.get('/faculties/:fid/departments/:depid/teachers', require('../controllers/get_department_teachers'));
 
+/* Faculty Groups */
+
+
 /* Company & Branch */
 router.get('/companies', require('../controllers/get_companies'));
 router.get('/companies/:compid', require('../controllers/get_company'));
 router.get('/companies/:compid/branches', require('../controllers/get_company_branches'));
 router.get('/companies/:compid/branches/:brid', require('../controllers/get_branch_details'));
 router.get('/companies/:compid/reviews', require('../controllers/get_company_review'));
+
 
 module.exports = router

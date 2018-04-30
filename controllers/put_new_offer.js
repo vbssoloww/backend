@@ -35,7 +35,7 @@ module.exports = (req, res) => {
     } else {
         db.query(SQL.CREATE_NEW_OFFER, [params], (err, results, fields) => {
             if (err) {
-                if (err.code = 'ER DUP ENTRY') {
+                if (err.code === 'ER DUP ENTRY') {
                     res.status(400).send({
                         message: "Payment already exists!"
                     });

@@ -18,6 +18,7 @@ const app = express();
 // Config
 const corsConfig = require('./config/cors')
 
+// Logger
 app.use(morgan('dev'));
 
 app.use(helmet());
@@ -34,6 +35,9 @@ app.use(upload.array());
 
 // Convert to lowercase
 app.use(lowercasePaths())
+// Static Dir
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     res.send("Hello!");

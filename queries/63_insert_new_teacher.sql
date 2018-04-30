@@ -1,0 +1,2 @@
+INSERT INTO teacher
+SET ?;
