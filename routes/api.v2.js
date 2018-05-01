@@ -42,6 +42,7 @@ router.put('/students/:stuid/payments', require('../controllers/put_new_payment'
 
 /* Student Internship */
 router.get('/students/:stuid/internships', require('../controllers/get_student_internships'));
+router.put('/students/:stuid/internships', require('../controllers/put_new_internship'));
 router.get('/students/:stuid/internships/:year', require('../controllers/get_student_internships'));
 
 /* Subject */
@@ -83,7 +84,7 @@ router.get('/faculties/:fid/departments/:depid/teachers', require('../controller
 router.get('/companies', require('../controllers/get_companies'));
 router.put('/companies', require('../controllers/put_new_company'));
 router.get('/companies/:compid', require('../controllers/get_company'));
-router.put('/companies/:compid/branches', requrie('../controllers/put_new_branch'));
+router.put('/companies/:compid/branches', require('../controllers/put_new_branch'));
 router.get('/companies/:compid/branches', require('../controllers/get_company_branches'));
 router.get('/companies/:compid/branches/:brid', require('../controllers/get_branch_details'));
 router.get('/companies/:compid/reviews', require('../controllers/get_company_review'));
