@@ -71,4 +71,5 @@ module.exports = {
     CREATE_NEW_CLASS: loadSql('66_insert_new_class.sql'),
     CREATE_NEW_SECTION: loadSql('66_insert_new_section.sql'),
     CREATE_NEW_INTERNSHIP: loadSql('68_insert_new_internship.sql'),
+    CREATE_NEW_DEPARTMENT_HEAD: loadSql('123_insert_new_department_head.sql'),
 }

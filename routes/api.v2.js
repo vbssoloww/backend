@@ -75,6 +75,7 @@ router.get('/faculties/:fid', require('../controllers/get_faculty'));
 router.get('/faculties/:fid/departments', require('../controllers/get_departments'));
 router.get('/faculties/:fid/departments/:depid', require('../controllers/get_department'));
 router.get('/faculties/:fid/departments/:depid/head', require('../controllers/get_department_head'));
+router.put('/faculties/:fid/departments/:depid/head/', require('../controllers/put_department_head'));
 router.get('/faculties/:fid/departments/:depid/teachers', require('../controllers/get_department_teachers'));
 
 /* Faculty Groups */
